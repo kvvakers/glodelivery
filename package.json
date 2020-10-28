@@ -1,0 +1,21 @@
+{
+  "name": "delivery-food",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "parcel index.html serve --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kvvakers/glodelivery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kvvakers/glodelivery/issues"
+  },
+  "homepage": "https://github.com/kvvakers/glodelivery#readme"
+}
