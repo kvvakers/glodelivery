@@ -20,7 +20,29 @@ const restaurantsBox = document.querySelector('.restaurants')
 const menuBox = document.querySelector('.menu')
 const logo = document.querySelector('.logo')
 const cardsMenu = document.querySelector('.cards-menu')
-
+const inputSearch = document.querySelector('.input-search')
+const modalBody = document.querySelector('.modal-body')
+const modalPrice = document.querySelector('.modal-pricetag')
+const btnClearCart = document.querySelector('.clear-cart')
+let login = localStorage.getItem(`gloDelivery`)
+const getStorage = localStorage.getItem(`gloDelivery_${login}`) || ''
+let cart = []
+if (getStorage) {
+    cart = JSON.parse(getStorage)
+}
+function saveCart () {
+    if (login) {
+        localStorage.setItem(`gloDelivery_${login}`, JSON.stringify(cart))
+    }
+}
+function downloadCart() {
+    if (localStorage.getItem(`gloDelivery_${login}`)) {
+        const data = JSON.parse(localStorage.getItem(`gloDelivery_${login}`))
+        data.forEach(item => {
+            console.log(cart);
+        })
+    }
+}
 const getData = async function (url) {
     const response = await fetch(url)
     if (!response.ok) {
@@ -55,6 +77,7 @@ function auth() {
         user = {}
         localStorage.removeItem('gloDelivery')
         buttonAuth.style.display = userName.style.display = btnOut.style.display = userName.textContent = ''
+        cartButton.style.display = ''
         btnOut.removeEventListener('click', logOut)
         checkAuth()
     }
@@ -64,6 +87,7 @@ function auth() {
     userName.style.display = 'block'
     btnOut.style.display = 'block'
     userName.textContent = user.login
+    cartButton.style.display = 'flex'
     btnOut.addEventListener('click', logOut)
 }
 
@@ -76,6 +100,7 @@ function notAuth() {
             loginInput.value = passInput.value = ''
             localStorage.setItem('gloDelivery', user.login)
             toggleModalAuth()
+            downloadCart()
             buttonAuth.removeEventListener('click', toggleModalAuth)
             closeAuthButton.removeEventListener('click', toggleModalAuth)
             logInForm.removeEventListener('submit', logIn)
@@ -136,8 +161,9 @@ getData('db/partners.json').then(function (data) {
     data.forEach(createCardRestaurant)
 })
 
-function createCardGood({ name, price }) {
+function createCardGood({ name, price, id }) {
     const card = document.createElement('div');
+    card.id = id
     card.classList.add('card')
     card.insertAdjacentHTML('beforeend',`
         <div class="card-text">
@@ -172,18 +198,87 @@ function openGoods(e) {
             containerPromo.classList.add('hide')
             restaurantsBox.classList.add('hide')
             menuBox.classList.remove('hide')
-            getData(`db/${restaurant.dataset.products}`).then(function (data) {
-                data.forEach(createCardGood)
-            })
             const titleRest = restaurant.dataset.name
             document.querySelector('.restaurant-title').textContent = titleRest
             const priceRest = restaurant.dataset.price
             document.querySelector('.menu .section-heading .price').textContent = priceRest
             const catRest = restaurant.dataset.cat
             document.querySelector('.menu .section-heading .card-info .category').textContent = catRest
+
+            getData(`db/${restaurant.dataset.products}`).then(function (data) {
+                data.forEach(createCardGood)
+            })
+            location.hash = `#${titleRest}`
         }
     } else {
         toggleModalAuth()
+    }
+
+}
+
+function addToCart(e) {
+    const target = e.target
+    const addButton = target.closest('.button-add-cart')
+    if (addButton) {
+        const card = target.closest('.card')
+        const title = card.querySelector('.card-title-reg').textContent
+        const cost = card.querySelector('.card-price-bold').textContent
+        const id = card.id
+        const food = cart.find((item) => {
+            return item.id === id
+        })
+        if (food) {
+            food.count++
+        } else {
+            cart.push({id, title, cost, count: 1})
+        }
+        saveCart()
+    }
+}
+
+function renderCart() {
+    modalBody.textContent = ''
+    console.log('modal')
+    if (cart.length > 0) {
+        cart.forEach((item) => {
+            const itemCart = `
+    <div class="food-row">
+        <span class="food-name">${item.title}</span>
+        <strong class="food-price">${item.cost}</strong>
+        <div class="food-counter">
+            <button class="counter-button counter-minus" data-id="${item.id}">-</button>
+            <span class="counter">${item.count}</span>
+            <button class="counter-button counter-plus" data-id="${item.id}">+</button>
+        </div>
+    </div>
+    `
+            modalBody.insertAdjacentHTML('afterbegin', itemCart)
+        })
+
+
+        const totalPrice = cart.reduce(function (result, item) {
+            return result + (parseFloat(item.cost) * item.count)
+        }, 0)
+        modalPrice.textContent = totalPrice + ' ₽'
+    }
+}
+
+function changeCount (e) {
+    const target = e.target
+    if (target.classList.contains('counter-button')) {
+        const food = cart.find(item => {
+            return item.id === target.dataset.id
+        })
+        if (target.classList.contains('counter-minus')) {
+            food.count--
+            if (food.count === 0) {
+                cart.splice(cart.indexOf(food), 1)
+            }
+        }
+        if (target.classList.contains('counter-plus')) {
+            food.count++
+        }
+        renderCart()
     }
 
 }
@@ -192,7 +287,22 @@ function init () {
     getData('db/partners.json').then(function (data) {
         data.forEach(createCardRestaurant)
     })
-    cartButton.addEventListener("click", toggleModal);
+    cartButton.addEventListener("click", () => {
+        renderCart()
+        if (cart.length > 0) {
+            toggleModal()
+        } else {
+            alert('Ваша корзина пуста')
+        }
+    });
+    btnClearCart.addEventListener('click', function () {
+        toggleModal()
+        localStorage.setItem(`gloDelivery_${login}`, '')
+        cart.length = 0
+        renderCart()
+    })
+    modalBody.addEventListener('click', changeCount)
+    cardsMenu.addEventListener('click', addToCart)
     close.addEventListener("click", toggleModal);
     cardsRestaurants.addEventListener('click', openGoods)
     logo.addEventListener('click', () => {
@@ -201,6 +311,38 @@ function init () {
         menuBox.classList.add('hide')
     })
     checkAuth()
+    inputSearch.addEventListener('keypress', function (e) {
+        if(e.charCode === 13) {
+            const val = e.target.value.trim()
+            if (val) {
+                getData('db/partners.json').then((data) => {
+                    return  data.map((partner) => {
+                        return partner.products
+                    })
+                }).then((linkProduct) => {
+
+                    cardsMenu.textContent = ''
+                    linkProduct.forEach(function (link) {
+                        getData(`db/${link}`)
+                            .then(function (data) {
+                                const resultSearch = data.filter((item) => {
+                                    const name = item.name.toLowerCase()
+                                    return name.includes(val.toLowerCase())
+                                })
+                                containerPromo.classList.add('hide')
+                                restaurantsBox.classList.add('hide')
+                                menuBox.classList.remove('hide')
+                                document.querySelector('.restaurant-title').textContent = 'Result search'
+                                document.querySelector('.menu .section-heading .price').textContent = ''
+                                document.querySelector('.menu .section-heading .card-info .category').textContent = ''
+                                resultSearch.forEach(createCardGood)
+                            })
+                    })
+                })
+            }
+
+        }
+    })
     new Swiper('.swiper-container', {
         sliderPerView: 1,
         loop: true,

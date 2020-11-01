@@ -1,49 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c86d6d4-7043-4341-90f1-043acdbe3684" name="Default Changelist" comment="cards goods">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/fb.60d701ab.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/home.d389a966.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/instagram.be87969e.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/kebab.d8c2d537.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/logo.ab234f04.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/logout.a4a685c4.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/main.fb6bbcaf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/main.fb6bbcaf.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/normalize.1114379f.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/normalize.1114379f.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/normalize.1114379f.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/normalize.1114379f.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/pizza-classic.efcd2c16.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/pizza-girls.ec2b401d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/pizza-hawaiian.6f0f3c62.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/pizza-oleole.d240c6f1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/pizza-plus.a9efe8d5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/pizza-vesuvius.7c9edadc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/pizza.7aa4b6f2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/preview.0502c216.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/preview.1c05ecb9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/preview.2f4967bf.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/preview.6e7955e5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/preview.80572c93.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/preview.a81fd4e5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/rating.ec16ad3a.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/restaurant.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/search.0f6bce03.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/shopping-cart.58f3c29e.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/style.78032849.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/style.78032849.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/style.78032849.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/style.78032849.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/sushi.f92b9ec7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/user.1eb6f9ec.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/vegetables.fb84f8da.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/vk.10f190de.svg" afterDir="false" />
+    <list default="true" id="0c86d6d4-7043-4341-90f1-043acdbe3684" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +50,11 @@
       <workItem from="1603906816673" duration="2813000" />
       <workItem from="1603962941257" duration="359000" />
       <workItem from="1603992243683" duration="3001000" />
-      <workItem from="1603997484395" duration="4538000" />
+      <workItem from="1603997484395" duration="5067000" />
+      <workItem from="1604045107068" duration="9779000" />
+      <workItem from="1604084410221" duration="45000" />
+      <workItem from="1604084532610" duration="5945000" />
+      <workItem from="1604242375295" duration="4071000" />
     </task>
     <task id="LOCAL-00001" summary="cards goods">
       <created>1603883842332</created>
@@ -100,7 +63,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603883842332</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fetch">
+      <created>1604002105210</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604002105210</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,22 +80,27 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="cards goods" />
-    <option name="LAST_COMMIT_MESSAGE" value="cards goods" />
+    <MESSAGE value="fetch" />
+    <option name="LAST_COMMIT_MESSAGE" value="fetch" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="149" y="0" width="1339" height="839" key="CommitChangelistDialog2" timestamp="1604001826129">
+    <state x="149" y="0" width="1339" height="839" key="CommitChangelistDialog2" timestamp="1604002104074">
       <screen x="0" y="0" width="1600" height="839" />
     </state>
-    <state x="149" y="0" width="1339" height="839" key="CommitChangelistDialog2/0.0.1600.839@0.0.1600.839" timestamp="1604001826129" />
+    <state x="149" y="0" width="1339" height="839" key="CommitChangelistDialog2/0.0.1600.839@0.0.1600.839" timestamp="1604002104074" />
     <state x="696" y="211" key="FileChooserDialogImpl" timestamp="1603963045154">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="580" y="174" key="FileChooserDialogImpl/0.0.1600.839@0.0.1600.839" timestamp="1603814195794" />
     <state x="696" y="211" key="FileChooserDialogImpl/0.0.1920.1019@0.0.1920.1019" timestamp="1603963045154" />
-    <state x="392" y="152" key="Vcs.Push.Dialog.v2" timestamp="1603883858776">
+    <state x="392" y="152" key="Vcs.Push.Dialog.v2" timestamp="1604002116025">
       <screen x="0" y="0" width="1600" height="839" />
     </state>
-    <state x="392" y="152" key="Vcs.Push.Dialog.v2/0.0.1600.839@0.0.1600.839" timestamp="1603883858776" />
+    <state x="392" y="152" key="Vcs.Push.Dialog.v2/0.0.1600.839@0.0.1600.839" timestamp="1604002116025" />
+    <state x="617" y="333" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604002092957">
+      <screen x="0" y="0" width="1600" height="839" />
+    </state>
+    <state x="617" y="333" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.839@0.0.1600.839" timestamp="1604002092957" />
     <state x="507" y="152" width="585" height="534" key="find.popup" timestamp="1603994275229">
       <screen x="0" y="0" width="1600" height="839" />
     </state>
